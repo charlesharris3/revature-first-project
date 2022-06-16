@@ -7,9 +7,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("item")
 public class ItemController {
 
-    @GetMapping() //http://localhost:8080/item/
+    @GetMapping("/home") //http://localhost:8080/item/home
     public String home(){
         return "This is the item controller";
+    }
+
+    @GetMapping("/getAllItems") //http://localhost:8080/item/getAllItems
+    public String getAllItems(){
+        return "A list of items";
+    }
+
+    //Create a new product using the POST HTTP method
+    @PostMapping("/addItem")
+    public String addItem(@RequestBody Item item){
+        System.out.println("Adding new item: "+ item);
+        return "Successfully saved item "+ item;
     }
 
     //Return an item by its ID- using @PathVariable annotation
@@ -28,13 +40,19 @@ public class ItemController {
         return item;
     }
 
+    //Update a product using the PUT HTTP method
+    @PutMapping("/updateItem")
+    public String updateItem(@RequestBody Item item){
+        System.out.println("Updating item: "+ item);
+        return "Successfully updated item "+ item;
+    }
+
     //Delete an item by its ID - using @PathVariable: @DeleteMapping
     @DeleteMapping("/removeItemById/{itemId}") //http://localhost:8080/item/removeItemById
     public String deleteItemById(@PathVariable("itemId")int itemId){
         Item item = new Item(itemId,1,10,"Toilet Paper");
         return "Removing item by id: "+ itemId;
     }
-
 
 
     //Return number of items currently in stock
