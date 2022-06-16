@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class RevatureFirstProjectApplication {
 	public static void main(String[] args) { SpringApplication.run(RevatureFirstProjectApplication.class, args);} //
 
-	@RequestMapping("/home")
+	@RequestMapping("/home") //http://localhost:8080/home
 	public String greet(){ return "If you can read this, it fucking works...!"; }
 }
