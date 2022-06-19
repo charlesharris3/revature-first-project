@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Item;
 import com.example.demo.repository.ItemRepository;
+import com.example.demo.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ public class ItemController {
     Item item;
 
     @Autowired
-    ItemRepository itemRepository;
+    ItemService itemService;
 
     @GetMapping("/home") //http://localhost:8084/item/home
     public String home(){
@@ -28,7 +29,7 @@ public class ItemController {
     //Create a new product using the POST HTTP method
     @PostMapping("/addItem") //http://localhost:8084/item/addItem
     public String addItem(@RequestBody Item item){
-        itemRepository.save(item);
+        itemService.addItem(item);
         return "Successfully saved item "+ item;
     }
 
