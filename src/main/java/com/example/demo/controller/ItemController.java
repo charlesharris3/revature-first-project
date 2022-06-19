@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("item")
 public class ItemController {
 
-    @Autowired() //Injects Item class into Spring - this is a Bean
+    @Autowired //Injects Item class into Spring - this is a Bean
     Item item;
 
     @GetMapping("/home") //http://localhost:8080/item/home
