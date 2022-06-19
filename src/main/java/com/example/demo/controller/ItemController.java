@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Item;
+import com.example.demo.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,9 @@ public class ItemController {
 
     @Autowired //Injects Item class into Spring - this is a Bean
     Item item;
+
+    @Autowired
+    ItemRepository itemRepository;
 
     @GetMapping("/home") //http://localhost:8080/item/home
     public String home(){
@@ -24,7 +28,7 @@ public class ItemController {
     //Create a new product using the POST HTTP method
     @PostMapping("/addItem") //http://localhost:8080/item/addItem
     public String addItem(@RequestBody Item item){
-        System.out.println("Adding new item: "+ item.getItemName());
+        itemRepository.save(item);
         return "Successfully saved item "+ item;
     }
 
