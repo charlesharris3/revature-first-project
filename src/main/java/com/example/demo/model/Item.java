@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "items", schema = "public")
+@Table(name = "items", schema = "revature_db")
 public class Item {
     @Id
     private int itemId;
