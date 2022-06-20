@@ -46,10 +46,6 @@ public class ItemServiceImpl implements ItemService{
     }
 
     //////
-    @Override
-    public String getItemQuantity(String itemQuantity) {
-        return null;
-    }
 
     @Override
     public List<Item> getItemsByName(String itemName) {

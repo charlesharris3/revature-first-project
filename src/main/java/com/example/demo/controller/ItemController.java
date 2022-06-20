@@ -60,13 +60,14 @@ public class ItemController {
         return itemService.itemExists(itemId);
     }
 
-    /*Return number of items currently in stock
-    @GetMapping("/getItemQuantity/{itemName}") //http://localhost:8084/item/getItemQuantity
-    public String getItemQuantity(@PathVariable("itemName")Item item){
+    // Return number of items currently in stock
+    @GetMapping("/getItemQuantity/{itemId}") //http://localhost:8084/item/getItemQuantity
+    public String getItemQuantity(@PathVariable("itemId")int itemId){
+        Item item = itemService.getItemById(itemId);
         return "The total quantity of item "+ item.getItemName() +" is "+ item.getTotalItemQuantity();
     }
 
-     Return an item by its name - using @PathVariable annotation
+    /*  Return an item by its name - using @PathVariable annotation
     @GetMapping("/getItemByName/{itemName}") //http://localhost:8084/item/getItemByName
     public Item getItemByName(@PathVariable("itemName")String itemName){
         System.out.println("Retrieving item: "+ item.getItemName());
