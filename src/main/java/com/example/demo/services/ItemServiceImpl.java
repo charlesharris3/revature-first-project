@@ -46,6 +46,10 @@ public class ItemServiceImpl implements ItemService{
     }
 
     //////
+    public String getItemQuantity(int itemId){
+        Item item = itemRepository.getById(itemId);
+        return "The number of products for "+ item.getItemName()+" currently in stock is "+item.getTotalItemQuantity();
+    }
 
     @Override
     public List<Item> getItemsByName(String itemName) {

@@ -62,9 +62,7 @@ public class ItemController {
 
     // Return number of items currently in stock
     @GetMapping("/getItemQuantity/{itemId}") //http://localhost:8084/item/getItemQuantity
-    public String getItemQuantity(@PathVariable("itemId")int itemId){
-        Item item = itemService.getItemById(itemId);
-        return "The total quantity of item "+ item.getItemName() +" is "+ item.getTotalItemQuantity();
+    public void getItemQuantity(@PathVariable("itemId")int itemId){
     }
 
     /*  Return an item by its name - using @PathVariable annotation
