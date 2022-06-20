@@ -1,12 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Item;
-import com.example.demo.repository.ItemRepository;
 import com.example.demo.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("item")
@@ -36,8 +36,8 @@ public class ItemController {
 
     //Return an item by its ID- using @PathVariable annotation
     @GetMapping("/getItemById/{itemId}") //http://localhost:8084/item/getItemById
-    public Item getItemById(@PathVariable("itemId")int itemId){
-        Item item = itemService.getItemById(itemId);
+    public Item getItem(@PathVariable("itemId")int itemId){
+        Item item = itemService.getItem(itemId);
         return item;
     }
 
@@ -55,14 +55,16 @@ public class ItemController {
         return "Removing item by id: "+ itemId;
     }
 
-    @GetMapping("/doesItemExist/{itemId}")
-    public boolean doesItemExist(@PathVariable("itemid") int itemId){
+    @GetMapping("/doesItemExist/{itemId}") //http:localhost:8084/item/doesItemExist
+    public boolean doesItemExist(@PathVariable("itemId") int itemId){
         return itemService.itemExists(itemId);
     }
 
     // Return number of items currently in stock
     @GetMapping("/getItemQuantity/{itemId}") //http://localhost:8084/item/getItemQuantity
-    public void getItemQuantity(@PathVariable("itemId")int itemId){
+    public String getItemQuantity(@PathVariable("itemId")int itemId){
+        Item item = itemService.getItem(itemId);
+        return "The number of products for "+item.getItemName()+" currently in stock is "+item.getTotalItemQuantity();
     }
 
     /*  Return an item by its name - using @PathVariable annotation
