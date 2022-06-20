@@ -29,7 +29,7 @@ public class ItemServiceImpl implements ItemService{
     @Override
     public boolean updateItem(Item item) {
         itemRepository.save(item);
-        return true;
+        return false;
     }
 
     @Override
