@@ -19,37 +19,42 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public boolean deleteItemById(Item item) {
-        return false;
+    public boolean deleteItemById(int itemId) {
+        itemRepository.deleteById(itemId);
+        return true;
     }
 
     @Override
     public boolean updateItem(Item item) {
-        return false;
+        itemRepository.save(item);
+        return true;
     }
 
     @Override
     public Item getItemById(int itemId) {
-        return null;
+        return itemRepository.getById(itemId);
     }
 
     @Override
     public boolean itemExists(int itemId) {
-        return false;
+        return itemRepository.existsById(itemId);
     }
 
+    @Override
+    public List<Item> getAllItems() {
+        return itemRepository.findAll();
+    }
+
+    //////
     @Override
     public String getItemQuantity(String itemQuantity) {
         return null;
     }
 
     @Override
-    public List<Item> getItemByName(String itemName) {
+    public List<Item> getItemsByName(String itemName) {
         return null;
     }
 
-    @Override
-    public List<Item> getAllItems() {
-        return null;
-    }
+
 }
