@@ -5,9 +5,7 @@ import lombok.Data; //lombok library for standard class methods
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component; //creates Bean
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Component //used to generate this class as a Bean
 @Data
@@ -17,6 +15,7 @@ import javax.persistence.Table;
 @Table(name = "items", schema = "revature_db")
 public class Item {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int itemId;
     private int totalItemQuantity;
     private int itemPrice;

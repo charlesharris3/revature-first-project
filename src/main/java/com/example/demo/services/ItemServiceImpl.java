@@ -5,7 +5,9 @@ import com.example.demo.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemServiceImpl implements ItemService{
@@ -31,8 +33,8 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public Item getItemById(int itemId) {
-        return itemRepository.getById(itemId);
+    public Item getItem(int itemId) {
+        return itemRepository.findById(itemId).get();
     }
 
     @Override
@@ -46,9 +48,9 @@ public class ItemServiceImpl implements ItemService{
     }
 
     //////
-    public String getItemQuantity(int itemId){
+    public Item getItemQuantity(int itemId){
         Item item = itemRepository.getById(itemId);
-        return "The number of products for "+ item.getItemName()+" currently in stock is "+item.getTotalItemQuantity();
+        return item;
     }
 
     @Override
