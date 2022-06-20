@@ -41,6 +41,7 @@ public class ItemController {
         return item;
     }
 
+    /* needs work!!!! */
     //Update a product using the PUT HTTP method
     @PutMapping("/updateItem") //http://localhost:8084/item/updateItem
     public String updateItem(@RequestBody Item item){
