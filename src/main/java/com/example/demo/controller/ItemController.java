@@ -77,8 +77,11 @@ public class ItemController {
     }
 
     @GetMapping("/doesItemExist/{itemId}") //http:localhost:8084/item/doesItemExist
-    public boolean doesItemExist(@PathVariable("itemId") int itemId){
-        return itemService.itemExists(itemId);
+    public ResponseEntity<String> doesItemExist(@PathVariable("itemId") int itemId){
+        if(itemService.itemExists(itemId)){
+            return new ResponseEntity<String>("Item "+itemId+" exists.",HttpStatus.OK);
+        } else
+            return new ResponseEntity<String>("Item "+itemId+" does not exists.",HttpStatus.NOT_FOUND);
     }
 
     // Return number of items currently in stock
