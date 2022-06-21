@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,8 +19,7 @@ public class ItemController {
     Item item;
     @Autowired
     ItemService itemService;
-    //Create ResponseEntity variable and initialize it with value "null". Will be assigned ResponseEntity object in
-    //controller methods based on HTTP status needed.
+
     ResponseEntity responseEntity = null;
 
     @GetMapping("/home") //http://localhost:8084/item/home
@@ -28,21 +28,21 @@ public class ItemController {
     }
 
     @GetMapping("/getAllItems") //http://localhost:8084/item/getAllItems
-    public List<Item> getAllItems(){
-        return itemService.getAllItems();
+    public ResponseEntity<List<Item>> getAllItems(){
+        List<Item> itemsList = new ArrayList<Item>();
+        itemsList = itemService.getAllItems();
+        return new ResponseEntity<List<Item>>(itemsList,HttpStatus.ACCEPTED);
     }
 
     //Create a new product using the POST HTTP method
     @PostMapping("/addItem") //http://localhost:8084/item/addItem
     public ResponseEntity<String> addItem(@RequestBody Item item){
         if(itemService.itemExists(item.getItemId())){
-            responseEntity = new ResponseEntity<String>("The item with ID "+item.getItemId()+" already exists.", HttpStatus.ACCEPTED);
+            return new ResponseEntity<String>("The item with ID "+item.getItemId()+" already exists.", HttpStatus.ACCEPTED);
         }
         else{
             itemService.addItem(item);
-            responseEntity = new ResponseEntity<String>("The item with ID "+item.getItemId()+" has been added to the database.", HttpStatus.OK);
-        }
-        return responseEntity;
+        } return new ResponseEntity<String>("The item with ID "+item.getItemId()+" has been added to the database.", HttpStatus.OK);
     }
 
     //Return an item by its ID- using @PathVariable annotation
