@@ -5,9 +5,7 @@ import com.example.demo.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ItemServiceImpl implements ItemService{
@@ -27,9 +25,8 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public boolean updateItem(Item item) {
-        itemRepository.save(item);
-        return false;
+    public Item updateItem(Item item) {
+        return itemRepository.getById(item.getItemId());
     }
 
     @Override

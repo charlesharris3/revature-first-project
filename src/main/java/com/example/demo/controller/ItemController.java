@@ -57,12 +57,21 @@ public class ItemController {
             return new ResponseEntity<Item>(item,HttpStatus.NO_CONTENT);
     }
 
-    /* needs work!!!! */
+    /* needs work!!!! - not updating items */
     //Update a product using the PUT HTTP method
-    @PutMapping("/updateItem") //http://localhost:8084/item/updateItem
-    public String updateItem(@RequestBody Item item){
-        itemService.updateItem(item);
-        return "Successfully updated item "+ item;
+    @PutMapping("/updateItem/{itemId}") //http://localhost:8084/item/updateItem
+    public ResponseEntity<Item> updateItem(@PathVariable("itemId") int itemId, @RequestBody Item item){
+        Item existingItem = itemService.getItem(itemId);
+        if(itemService.itemExists(itemId)) {
+            existingItem.setItemId(item.getItemId());
+            existingItem.setTotalItemQuantity(item.getTotalItemQuantity());
+            existingItem.setItemPrice(item.getItemPrice());
+            existingItem.setItemName(item.getItemName());
+            itemService.updateItem(existingItem);
+            return new ResponseEntity<Item>(existingItem,HttpStatus.OK);
+        }
+        else
+            return new ResponseEntity<Item>(existingItem,HttpStatus.NOT_FOUND);
     }
 
     //Delete an item by its ID - using @PathVariable: @DeleteMapping
