@@ -67,9 +67,13 @@ public class ItemController {
 
     //Delete an item by its ID - using @PathVariable: @DeleteMapping
     @DeleteMapping("/removeItemById/{itemId}") //http://localhost:8084/item/removeItemById
-    public String deleteItemById(@PathVariable("itemId")int itemId){
-        itemService.deleteItemById(itemId);
-        return "Removing item by id: "+ itemId;
+    public ResponseEntity<String> deleteItemById(@PathVariable("itemId")int itemId){
+        if(itemService.itemExists(itemId)){
+            itemService.deleteItemById(itemId);
+            return new ResponseEntity<String>("Item "+itemId+" has been removed from the database.",HttpStatus.OK);
+        }
+        else
+            return new ResponseEntity<String>("Item "+itemId+" does not exist.",HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/doesItemExist/{itemId}") //http:localhost:8084/item/doesItemExist
