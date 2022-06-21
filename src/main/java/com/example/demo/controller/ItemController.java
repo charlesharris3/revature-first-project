@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.model.Item;
 import com.example.demo.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +18,9 @@ public class ItemController {
     Item item;
     @Autowired
     ItemService itemService;
+    //Create ResponseEntity variable and initialize it with value "null". Will be assigned ResponseEntity object in
+    //controller methods based on HTTP status needed.
+    ResponseEntity responseEntity = null;
 
     @GetMapping("/home") //http://localhost:8084/item/home
     public String home(){
@@ -29,9 +34,15 @@ public class ItemController {
 
     //Create a new product using the POST HTTP method
     @PostMapping("/addItem") //http://localhost:8084/item/addItem
-    public String addItem(@RequestBody Item item){
-        itemService.addItem(item);
-        return "Successfully saved item "+ item;
+    public ResponseEntity<String> addItem(@RequestBody Item item){
+        if(itemService.itemExists(item.getItemId())){
+            responseEntity = new ResponseEntity<String>("The item with ID "+item.getItemId()+" already exists.", HttpStatus.ACCEPTED);
+        }
+        else{
+            itemService.addItem(item);
+            responseEntity = new ResponseEntity<String>("The item with ID "+item.getItemId()+" has been added to the database.", HttpStatus.OK);
+        }
+        return responseEntity;
     }
 
     //Return an item by its ID- using @PathVariable annotation
