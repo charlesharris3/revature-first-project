@@ -31,7 +31,7 @@ public class ItemController {
     public ResponseEntity<List<Item>> getAllItems(){
         List<Item> itemsList = new ArrayList<Item>();
         itemsList = itemService.getAllItems();
-        return new ResponseEntity<List<Item>>(itemsList,HttpStatus.ACCEPTED);
+        return new ResponseEntity<List<Item>>(itemsList,HttpStatus.OK);
     }
 
     //Create a new product using the POST HTTP method
@@ -47,9 +47,14 @@ public class ItemController {
 
     //Return an item by its ID- using @PathVariable annotation
     @GetMapping("/getItemById/{itemId}") //http://localhost:8084/item/getItemById
-    public Item getItem(@PathVariable("itemId")int itemId){
-        Item item = itemService.getItem(itemId);
-        return item;
+    public ResponseEntity<Item> getItem(@PathVariable("itemId")int itemId){
+        Item item = new Item();
+        if(itemService.itemExists(itemId)){
+            item = itemService.getItem(itemId);
+            return new ResponseEntity<Item>(item,HttpStatus.OK);
+        }
+        else
+            return new ResponseEntity<Item>(item,HttpStatus.NO_CONTENT);
     }
 
     /* needs work!!!! */
