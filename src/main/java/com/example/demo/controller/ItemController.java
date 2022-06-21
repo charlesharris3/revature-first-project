@@ -86,9 +86,13 @@ public class ItemController {
 
     // Return number of items currently in stock
     @GetMapping("/getItemQuantity/{itemId}") //http://localhost:8084/item/getItemQuantity
-    public String getItemQuantity(@PathVariable("itemId")int itemId){
-        Item item = itemService.getItem(itemId);
-        return "The number of products for "+item.getItemName()+" currently in stock is "+item.getTotalItemQuantity();
+    public ResponseEntity<String> getItemQuantity(@PathVariable("itemId")int itemId){
+        Item item = null;
+        if(itemService.itemExists(itemId)){
+            item = itemService.getItem(itemId);
+            return new ResponseEntity<String>("The number of products for "+item.getItemName()+" currently in stock is "+item.getTotalItemQuantity(),HttpStatus.OK);
+        } else
+            return new ResponseEntity<String>("Item "+itemId+" does not exists.",HttpStatus.NOT_FOUND);
     }
 
     /*  Return an item by its name - using @PathVariable annotation
