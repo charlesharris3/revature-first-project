@@ -1,11 +1,13 @@
 package com.example.demo.services;
 
+import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.model.Item;
 import com.example.demo.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemServiceImpl implements ItemService{
@@ -25,13 +27,20 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public Item updateItem(Item item) {
-        return itemRepository.getById(item.getItemId());
+    public Item updateItem(Item item, int itemId) {
+        Item existingItem = itemRepository.findById(itemId).orElseThrow(
+                () -> new ResourceNotFoundException("Employee","Id",itemId));
+        //existingItem.setItemId(item.getItemId());
+        existingItem.setTotalItemQuantity((item.getTotalItemQuantity()));
+        existingItem.setItemPrice((item.getItemPrice()));
+        existingItem.setItemName((item.getItemName()));
+        itemRepository.save(existingItem);
+        return existingItem;
     }
 
     @Override
-    public Item getItem(int itemId) {
-        return itemRepository.getById(itemId);
+    public Item getItemById(int itemId) {
+        return itemRepository.findById(itemId).orElseThrow(() -> new ResourceNotFoundException("Item","Id",itemId));
     }
 
     @Override

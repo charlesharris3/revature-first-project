@@ -38,40 +38,29 @@ public class ItemController {
     @PostMapping("/addItem") //http://localhost:8084/item/addItem
     public ResponseEntity<String> addItem(@RequestBody Item item){
         if(itemService.itemExists(item.getItemId())){
-            return new ResponseEntity<String>("The item with ID "+item.getItemId()+" already exists.", HttpStatus.ACCEPTED);
+            return new ResponseEntity<String>("The item with ID "+item.getItemId()+" already exists.", HttpStatus.ALREADY_REPORTED);
         }
         else{
             itemService.addItem(item);
-        } return new ResponseEntity<String>("The item with ID "+item.getItemId()+" has been added to the database.", HttpStatus.OK);
+        } return new ResponseEntity<String>("The item with ID "+item.getItemId()+" has been added to the database.", HttpStatus.CREATED);
     }
 
     //Return an item by its ID- using @PathVariable annotation
     @GetMapping("/getItemById/{itemId}") //http://localhost:8084/item/getItemById
-    public ResponseEntity<Item> getItem(@PathVariable("itemId")int itemId){
+    public ResponseEntity<Item> getItemById(@PathVariable("itemId")int itemId){
         Item item = new Item();
         if(itemService.itemExists(itemId)){
-            item = itemService.getItem(itemId);
+            item = itemService.getItemById(itemId);
             return new ResponseEntity<Item>(item,HttpStatus.OK);
         }
         else
             return new ResponseEntity<Item>(item,HttpStatus.NO_CONTENT);
     }
 
-    /* needs work!!!! - not updating items */
     //Update a product using the PUT HTTP method
     @PutMapping("/updateItem/{itemId}") //http://localhost:8084/item/updateItem
     public ResponseEntity<Item> updateItem(@PathVariable("itemId") int itemId, @RequestBody Item item){
-        Item existingItem = itemService.getItem(itemId);
-        if(itemService.itemExists(itemId)) {
-            existingItem.setItemId(item.getItemId());
-            existingItem.setTotalItemQuantity(item.getTotalItemQuantity());
-            existingItem.setItemPrice(item.getItemPrice());
-            existingItem.setItemName(item.getItemName());
-            itemService.updateItem(existingItem);
-            return new ResponseEntity<Item>(existingItem,HttpStatus.OK);
-        }
-        else
-            return new ResponseEntity<Item>(existingItem,HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Item>(itemService.updateItem(item,itemId),HttpStatus.OK);
     }
 
     //Delete an item by its ID - using @PathVariable: @DeleteMapping
@@ -98,7 +87,7 @@ public class ItemController {
     public ResponseEntity<String> getItemQuantity(@PathVariable("itemId")int itemId){
         Item item = null;
         if(itemService.itemExists(itemId)){
-            item = itemService.getItem(itemId);
+            item = itemService.getItemById(itemId);
             return new ResponseEntity<String>("The number of products for "+item.getItemName()+" currently in stock is "+item.getTotalItemQuantity(),HttpStatus.OK);
         } else
             return new ResponseEntity<String>("Item "+itemId+" does not exists.",HttpStatus.NOT_FOUND);

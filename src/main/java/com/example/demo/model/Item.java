@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Table(name = "items", schema = "revature_db")
 public class Item {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int itemId;
     private int totalItemQuantity;
     private int itemPrice;
