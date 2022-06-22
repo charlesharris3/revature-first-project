@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component; //creates Bean
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Component //used to generate this class as a Bean
 @Data
