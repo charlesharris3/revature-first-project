@@ -9,9 +9,10 @@ import java.util.List;
 
 @Component
 public interface ItemRepository extends JpaRepository<Item,Integer> {
-    @Query("select i from Item i where itemName = ?1") //Note: Query is being written on model class - do not query table name. query the model class name
+    /* Select all items in the database where the name of the item is given by the user through the API */
+    @Query("select i from Item i where itemName = ?1") //Note: Query is being written on model class - do not query table name where data is stored. query the model class name
     public List<Item> getItemsByName(String itemName);
 
-   /* @Query("select i from Item i where itemName = ?1") Note: Query is being written on model class - do not query table name. query the model class name
+   /* @Query("select i from Item i where itemName = ?1") //Note: Query is being written on model class - do not query table name where data is stored. query the model class name
     public boolean itemExists(String itemName); */
 }
