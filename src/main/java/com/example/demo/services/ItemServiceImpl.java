@@ -48,6 +48,11 @@ public class ItemServiceImpl implements ItemService{
         return itemRepository.existsById(itemId);
     }
 
+    /*@Override
+    public boolean itemExists(String itemName) {
+        return itemRepository.itemExists(itemName);
+    }*/
+
     @Override
     public List<Item> getAllItems() {
         return itemRepository.findAll();
@@ -61,7 +66,7 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public List<Item> getItemsByName(String itemName) {
-        return null;
+        return itemRepository.getItemsByName(itemName);
     }
 
 

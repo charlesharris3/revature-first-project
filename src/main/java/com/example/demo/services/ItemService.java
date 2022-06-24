@@ -9,6 +9,7 @@ public interface ItemService { //method names are the same as ItemController.jav
     public Item updateItem(Item item, int itemId);
     public Item getItemById(int itemId);
     public boolean itemExists(int itemId);
+   /* public boolean itemExists(String itemName); */
     public List<Item> getAllItems();
     public List<Item> getItemsByName(String itemName);
 

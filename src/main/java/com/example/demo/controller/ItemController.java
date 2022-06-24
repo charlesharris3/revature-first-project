@@ -69,6 +69,12 @@ public class ItemController {
             LOGGER.warn("The item "+itemId+" does not exist.");
             return new ResponseEntity<Item>(item,HttpStatus.NOT_FOUND);
     }
+    //Return all items with the same name
+    @GetMapping("/getItemsByName/{itemName}") //http://localhost:8084/item/getItemsByName
+    public ResponseEntity<List<Item>> getItemsByName(@PathVariable("itemName")String itemName){
+            LOGGER.info("Returning item(s) "+itemService.getItemsByName(itemName));
+            return new ResponseEntity<List<Item>>(itemService.getItemsByName(itemName),HttpStatus.OK);
+    }
 
     //Update a product using the PUT HTTP method
     @PutMapping("/updateItem/{itemId}") //http://localhost:8084/item/updateItem

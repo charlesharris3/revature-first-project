@@ -1,2 +1,6 @@
 2022-06-23_23:35:44.547 [http-nio-8084-exec-1] WARN  c.e.demo.controller.ItemController - The item 90 does not exist.
 2022-06-23_23:35:54.763 [http-nio-8084-exec-3] WARN  c.e.demo.controller.ItemController - The item 1892 could not be found
+2022-06-24_00:29:26.378 [http-nio-8084-exec-3] WARN  c.e.demo.controller.ItemController - The item 90 does not exist.
+2022-06-24_00:29:34.629 [http-nio-8084-exec-5] WARN  c.e.demo.controller.ItemController - The item 234 does not exist.
+2022-06-24_00:29:48.411 [http-nio-8084-exec-4] WARN  c.e.demo.controller.ItemController - Item 91 could not be found
+2022-06-24_00:31:51.046 [http-nio-8084-exec-2] WARN  c.e.demo.controller.ItemController - Item 91 could not be found
