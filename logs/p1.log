@@ -22,3 +22,9 @@
 2022-06-24_07:36:20.750 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Started RevatureFirstProjectApplication in 5.725 seconds (JVM running for 6.668)
 2022-06-24_07:36:43.571 [http-nio-8084-exec-2] INFO  c.e.demo.controller.ItemController - Returning item(s) [Item(itemId=9, totalItemQuantity=300000, itemPrice=5, itemName=Butter Pecan Ice Cream Bars), Item(itemId=10, totalItemQuantity=100000, itemPrice=20, itemName=Butter Pecan Ice Cream Bars)]
 2022-06-24_07:37:09.844 [http-nio-8084-exec-3] WARN  c.e.demo.controller.ItemController - There are no items by the name Nutter Butter  Ice Cream Bars in the database
+2022-06-24_07:41:51.289 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Starting RevatureFirstProjectApplication using Java 1.8.0_331 on t3chkn0w with PID 12660 (C:\Users\t3chk\code\revature-project-one\target\classes started by t3chk in C:\Users\t3chk\code\revature-project-one)
+2022-06-24_07:41:51.290 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - No active profile set, falling back to 1 default profile: "default"
+2022-06-24_07:41:56.542 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Started RevatureFirstProjectApplication in 5.744 seconds (JVM running for 6.638)
+2022-06-24_07:42:22.931 [http-nio-8084-exec-1] WARN  c.e.demo.controller.ItemController - There are no items by the name Red Velvet Ice Cream Bars in the database
+2022-06-24_07:42:41.257 [http-nio-8084-exec-5] INFO  c.e.demo.controller.ItemController - Returning item(s) [Item(itemId=9, totalItemQuantity=300000, itemPrice=5, itemName=Butter Pecan Ice Cream Bars), Item(itemId=10, totalItemQuantity=100000, itemPrice=20, itemName=Butter Pecan Ice Cream Bars)]
+2022-06-24_07:43:19.795 [http-nio-8084-exec-2] WARN  c.e.demo.controller.ItemController - There are no items by the name Red Velvet Ice Cream Bars in the database

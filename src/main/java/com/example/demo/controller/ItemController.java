@@ -72,8 +72,7 @@ public class ItemController {
     //Return all items with the same name
     @GetMapping("/getItemsByName/{itemName}") //http://localhost:8084/item/getItemsByName
     public ResponseEntity<List<Item>> getItemsByName(@PathVariable("itemName")String itemName){
-            List<Item> items = new ArrayList<>();
-            items = itemService.getItemsByName(itemName);
+            List<Item> items = itemService.getItemsByName(itemName);
             if(items.size() > 0) {
                 LOGGER.info("Returning item(s) " + items);
                 return new ResponseEntity<List<Item>>(items, HttpStatus.OK);
