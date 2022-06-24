@@ -72,8 +72,15 @@ public class ItemController {
     //Return all items with the same name
     @GetMapping("/getItemsByName/{itemName}") //http://localhost:8084/item/getItemsByName
     public ResponseEntity<List<Item>> getItemsByName(@PathVariable("itemName")String itemName){
-            LOGGER.info("Returning item(s) "+itemService.getItemsByName(itemName));
-            return new ResponseEntity<List<Item>>(itemService.getItemsByName(itemName),HttpStatus.OK);
+            List<Item> items = new ArrayList<>();
+            items = itemService.getItemsByName(itemName);
+            if(items.size() > 0) {
+                LOGGER.info("Returning item(s) " + items);
+                return new ResponseEntity<List<Item>>(items, HttpStatus.OK);
+            }
+            else
+                LOGGER.warn("There are no items by the name "+itemName+" in the database");
+                return new ResponseEntity<List<Item>>(items, HttpStatus.NOT_FOUND);
     }
 
     //Update a product using the PUT HTTP method

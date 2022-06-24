@@ -30,7 +30,6 @@ public class ItemServiceImpl implements ItemService{
     public Item updateItem(Item item, int itemId) {
         Item existingItem = itemRepository.findById(itemId).orElseThrow(
                 () -> new ResourceNotFoundException("Employee","Id",itemId));
-        //existingItem.setItemId(item.getItemId());
         existingItem.setTotalItemQuantity((item.getTotalItemQuantity()));
         existingItem.setItemPrice((item.getItemPrice()));
         existingItem.setItemName((item.getItemName()));
@@ -48,10 +47,10 @@ public class ItemServiceImpl implements ItemService{
         return itemRepository.existsById(itemId);
     }
 
-    /*@Override
+   /* @Override
     public boolean itemExists(String itemName) {
         return itemRepository.itemExists(itemName);
-    }*/
+    } */
 
     @Override
     public List<Item> getAllItems() {
@@ -68,6 +67,5 @@ public class ItemServiceImpl implements ItemService{
     public List<Item> getItemsByName(String itemName) {
         return itemRepository.getItemsByName(itemName);
     }
-
 
 }
