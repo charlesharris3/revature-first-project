@@ -47,12 +47,12 @@ public class ItemController {
     @PostMapping("/addItem") //http://localhost:8084/item/addItem
     public ResponseEntity<String> addItem(@RequestBody Item item){
         if(itemService.itemExists(item.getItemId())){
-            LOGGER.warn("This item already exists.");
+            LOGGER.warn("Item "+item.getItemId()+" already exists.");
             return new ResponseEntity<String>("The item with ID "+item.getItemId()+" already exists.", HttpStatus.ALREADY_REPORTED);
         }
         else{
             itemService.addItem(item);
-            LOGGER.info("The item has been added successfully.");
+            LOGGER.info("The item with ID "+item.getItemId()+" has been added to the database.");
         } return new ResponseEntity<String>("The item with ID "+item.getItemId()+" has been added to the database.", HttpStatus.CREATED);
     }
 
@@ -66,14 +66,14 @@ public class ItemController {
             return new ResponseEntity<Item>(item,HttpStatus.OK);
         }
         else
-            LOGGER.warn("The item does not exist.");
-            return new ResponseEntity<Item>(item,HttpStatus.NO_CONTENT);
+            LOGGER.warn("The item "+itemId+" does not exist.");
+            return new ResponseEntity<Item>(item,HttpStatus.NOT_FOUND);
     }
 
     //Update a product using the PUT HTTP method
     @PutMapping("/updateItem/{itemId}") //http://localhost:8084/item/updateItem
     public ResponseEntity<Item> updateItem(@PathVariable("itemId") int itemId, @RequestBody Item item){
-            LOGGER.info("Item has been updated");
+            LOGGER.info("Item "+itemId+" has been updated");
             return new ResponseEntity<Item>(itemService.updateItem(item,itemId),HttpStatus.OK);
     }
 
@@ -82,21 +82,21 @@ public class ItemController {
     public ResponseEntity<String> deleteItemById(@PathVariable("itemId")int itemId){
         if(itemService.itemExists(itemId)){
             itemService.deleteItemById(itemId);
-            LOGGER.info("The item has been removed.");
+            LOGGER.info("Item "+itemId+" has been removed.");
             return new ResponseEntity<String>("Item "+itemId+" has been removed from the database.",HttpStatus.OK);
         }
         else
-            LOGGER.warn("The item could not be found");
+            LOGGER.warn("Item "+itemId+" could not be found");
             return new ResponseEntity<String>("Item "+itemId+" does not exist.",HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/doesItemExist/{itemId}") //http:localhost:8084/item/doesItemExist
     public ResponseEntity<String> doesItemExist(@PathVariable("itemId") int itemId){
         if(itemService.itemExists(itemId)){
-            LOGGER.info("The item exists.");
+            LOGGER.info("Item "+itemId+" exists.");
             return new ResponseEntity<String>("Item "+itemId+" exists.",HttpStatus.OK);
         } else
-            LOGGER.warn("The item could not be found");
+            LOGGER.warn("Item "+itemId+" could not be found");
             return new ResponseEntity<String>("Item "+itemId+" does not exists.",HttpStatus.NOT_FOUND);
     }
 
@@ -109,7 +109,7 @@ public class ItemController {
             item = itemService.getItemById(itemId);
             return new ResponseEntity<String>("The number of products for "+item.getItemName()+" currently in stock is "+item.getTotalItemQuantity(),HttpStatus.OK);
         } else
-            LOGGER.warn("The item could not be found");
+            LOGGER.warn("The item "+itemId+" could not be found");
             return new ResponseEntity<String>("Item "+itemId+" does not exists.",HttpStatus.NOT_FOUND);
     }
 
