@@ -67,15 +67,15 @@ public class UserController {
     }
     //Return all users with the same name
     @GetMapping("/getUsersByEmail/{userEmail}") //http://localhost:8084/user/getUsersByEmail
-    public ResponseEntity<List<User>> getUsersByName(@PathVariable("userName")String userEmail){
-        List<User> users = userService.getUsersByEmail(userEmail);
-        if(users.size() > 0) {
-            LOGGER.info("Returning user(s) " + users);
-            return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+    public ResponseEntity<User> getUserByEmail(@PathVariable("userName")String userEmail){
+        User user = userService.getUserByEmail(userEmail);
+        if(userService.userExists(user.getUserId())) {
+            LOGGER.info("Returning user: " + user);
+            return new ResponseEntity<User>(user, HttpStatus.OK);
         }
         else
             LOGGER.warn("There are no users by the name "+userEmail+" in the database");
-        return new ResponseEntity<List<User>>(users, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<User>(user, HttpStatus.NOT_FOUND);
     }
 
     //Update a product using the PUT HTTP method

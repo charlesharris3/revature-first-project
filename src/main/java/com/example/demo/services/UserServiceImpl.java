@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> getUsersByEmail(String userName) {
+    public User getUserByEmail(String userEmail) {
         return null;
     }
 }
