@@ -108,16 +108,4 @@ public class UserController {
         return new ResponseEntity<String>("User "+userId+" does not exists.",HttpStatus.NOT_FOUND);
     }
 
-    /*// Return number of users currently in stock
-    @GetMapping("/getUserQuantity/{userId}") //http://localhost:8084/user/getUserQuantity
-    public ResponseEntity<String> getUserQuantity(@PathVariable("userId")int userId){
-        User user = null;
-        if(userService.userExists(userId)){
-            LOGGER.info("Returning user "+userId);
-            user = userService.getUserById(userId);
-            return new ResponseEntity<String>("The number of products for "+user.getUserName()+" currently in stock is "+user.getTotalUserQuantity(),HttpStatus.OK);
-        } else
-            LOGGER.warn("The user "+userId+" could not be found");
-        return new ResponseEntity<String>("User "+userId+" does not exists.",HttpStatus.NOT_FOUND);
-    }*/
 }
