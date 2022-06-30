@@ -66,8 +66,8 @@ public class UserController {
         return new ResponseEntity<User>(user,HttpStatus.NOT_FOUND);
     }
     //Return all users with the same name
-    @GetMapping("/getUsersByEmail/{userEmail}") //http://localhost:8084/user/getUsersByEmail
-    public ResponseEntity<User> getUserByEmail(@PathVariable("userName")String userEmail){
+    @GetMapping("/getUserByEmail/{userEmail}") //http://localhost:8084/user/getUserByEmail
+    public ResponseEntity<User> getUserByEmail(@PathVariable("userEmail")String userEmail){
         User user = userService.getUserByEmail(userEmail);
         if(userService.userExists(user.getUserId())) {
             LOGGER.info("Returning user: " + user);

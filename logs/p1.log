@@ -39,3 +39,14 @@
 2022-06-30_00:13:28.683 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Started RevatureFirstProjectApplication in 5.768 seconds (JVM running for 6.78)
 2022-06-30_00:14:27.133 [http-nio-8084-exec-4] INFO  c.e.demo.controller.UserController - The user with ID 1 has a new account.
 2022-06-30_00:15:26.121 [http-nio-8084-exec-5] INFO  c.e.demo.controller.UserController - The user controller is being called from endpoint '/getAllUsers'
+2022-06-30_00:17:52.337 [http-nio-8084-exec-8] INFO  c.e.demo.controller.UserController - Returning user 1
+2022-06-30_00:22:34.993 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Starting RevatureFirstProjectApplication using Java 1.8.0_331 on t3chkn0w with PID 9060 (C:\Users\t3chk\code\revature-project-one\target\classes started by t3chk in C:\Users\t3chk\code\revature-project-one)
+2022-06-30_00:22:34.993 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - No active profile set, falling back to 1 default profile: "default"
+2022-06-30_00:22:40.403 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Started RevatureFirstProjectApplication in 5.968 seconds (JVM running for 6.932)
+2022-06-30_00:25:36.089 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Starting RevatureFirstProjectApplication using Java 1.8.0_331 on t3chkn0w with PID 17304 (C:\Users\t3chk\code\revature-project-one\target\classes started by t3chk in C:\Users\t3chk\code\revature-project-one)
+2022-06-30_00:25:36.089 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - No active profile set, falling back to 1 default profile: "default"
+2022-06-30_00:25:41.469 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Started RevatureFirstProjectApplication in 5.934 seconds (JVM running for 6.906)
+2022-06-30_00:30:53.915 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Starting RevatureFirstProjectApplication using Java 1.8.0_331 on t3chkn0w with PID 712 (C:\Users\t3chk\code\revature-project-one\target\classes started by t3chk in C:\Users\t3chk\code\revature-project-one)
+2022-06-30_00:30:53.915 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - No active profile set, falling back to 1 default profile: "default"
+2022-06-30_00:30:59.279 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Started RevatureFirstProjectApplication in 5.907 seconds (JVM running for 6.897)
+2022-06-30_00:31:14.601 [http-nio-8084-exec-2] INFO  c.e.demo.controller.UserController - Returning user: User(userId=1, userEmail=abc@gmail.com, userPassword=password)

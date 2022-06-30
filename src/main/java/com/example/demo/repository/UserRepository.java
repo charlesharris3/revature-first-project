@@ -11,6 +11,6 @@ import java.util.List;
 
 @Component
 public interface UserRepository extends JpaRepository<User, Integer> {
-    @Query("select u from User u where itemEmail = ?1") //Note: Query is being written on model class - do not query table name where data is stored. query the model class name
+    @Query("select u from User u where userEmail = ?1") //Note: Query is being written on model class - do not query table name where data is stored. query the model class name
     public User getUserByEmail(String userEmail);
 }
