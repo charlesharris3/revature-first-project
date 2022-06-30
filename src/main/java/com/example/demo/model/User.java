@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 import javax.persistence.*;
+import java.util.List;
 
 @Component //used to generate this class as a Bean
 @Data
@@ -18,4 +19,5 @@ public class User {
     private int userId;
     private String userEmail;
     private String userPassword;
+    /* private List<Item> userCart; */
 }

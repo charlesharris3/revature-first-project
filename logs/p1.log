@@ -50,3 +50,7 @@
 2022-06-30_00:30:53.915 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - No active profile set, falling back to 1 default profile: "default"
 2022-06-30_00:30:59.279 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Started RevatureFirstProjectApplication in 5.907 seconds (JVM running for 6.897)
 2022-06-30_00:31:14.601 [http-nio-8084-exec-2] INFO  c.e.demo.controller.UserController - Returning user: User(userId=1, userEmail=abc@gmail.com, userPassword=password)
+2022-06-30_00:35:01.905 [http-nio-8084-exec-6] INFO  c.e.demo.controller.UserController - User 1 has been updated
+2022-06-30_00:38:33.962 [http-nio-8084-exec-9] INFO  c.e.demo.controller.UserController - User 1 has been removed.
+2022-06-30_00:38:51.636 [http-nio-8084-exec-10] INFO  c.e.demo.controller.UserController - The user with ID 2 has a new account.
+2022-06-30_00:44:35.005 [http-nio-8084-exec-3] INFO  c.e.demo.controller.UserController - User 2 exists.
