@@ -28,3 +28,14 @@
 2022-06-24_07:42:22.931 [http-nio-8084-exec-1] WARN  c.e.demo.controller.ItemController - There are no items by the name Red Velvet Ice Cream Bars in the database
 2022-06-24_07:42:41.257 [http-nio-8084-exec-5] INFO  c.e.demo.controller.ItemController - Returning item(s) [Item(itemId=9, totalItemQuantity=300000, itemPrice=5, itemName=Butter Pecan Ice Cream Bars), Item(itemId=10, totalItemQuantity=100000, itemPrice=20, itemName=Butter Pecan Ice Cream Bars)]
 2022-06-24_07:43:19.795 [http-nio-8084-exec-2] WARN  c.e.demo.controller.ItemController - There are no items by the name Red Velvet Ice Cream Bars in the database
+2022-06-30_00:06:38.989 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Starting RevatureFirstProjectApplication using Java 1.8.0_331 on t3chkn0w with PID 13116 (C:\Users\t3chk\code\revature-project-one\target\classes started by t3chk in C:\Users\t3chk\code\revature-project-one)
+2022-06-30_00:06:38.989 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - No active profile set, falling back to 1 default profile: "default"
+2022-06-30_00:06:44.850 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Started RevatureFirstProjectApplication in 6.388 seconds (JVM running for 7.495)
+2022-06-30_00:11:00.394 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Starting RevatureFirstProjectApplication using Java 1.8.0_331 on t3chkn0w with PID 16048 (C:\Users\t3chk\code\revature-project-one\target\classes started by t3chk in C:\Users\t3chk\code\revature-project-one)
+2022-06-30_00:11:00.400 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - No active profile set, falling back to 1 default profile: "default"
+2022-06-30_00:11:06.030 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Started RevatureFirstProjectApplication in 6.233 seconds (JVM running for 7.197)
+2022-06-30_00:13:23.456 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Starting RevatureFirstProjectApplication using Java 1.8.0_331 on t3chkn0w with PID 7920 (C:\Users\t3chk\code\revature-project-one\target\classes started by t3chk in C:\Users\t3chk\code\revature-project-one)
+2022-06-30_00:13:23.471 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - No active profile set, falling back to 1 default profile: "default"
+2022-06-30_00:13:28.683 [restartedMain] INFO  c.e.d.RevatureFirstProjectApplication - Started RevatureFirstProjectApplication in 5.768 seconds (JVM running for 6.78)
+2022-06-30_00:14:27.133 [http-nio-8084-exec-4] INFO  c.e.demo.controller.UserController - The user with ID 1 has a new account.
+2022-06-30_00:15:26.121 [http-nio-8084-exec-5] INFO  c.e.demo.controller.UserController - The user controller is being called from endpoint '/getAllUsers'

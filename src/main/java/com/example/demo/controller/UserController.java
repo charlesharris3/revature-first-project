@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("users")
+@RequestMapping("user")
 public class UserController {
     @Autowired //Injects User class into Spring - this is a Bean
     User user;
@@ -40,7 +40,7 @@ public class UserController {
     }
 
     //Add a new user using the POST HTTP method
-    @PostMapping("/registerUser") //http://localhost:8084/user/addUser
+    @PostMapping("/registerUser") //http://localhost:8084/user/registerUser
     public ResponseEntity<String> registerUser(@RequestBody User user){
         if(userService.userExists(user.getUserId())){
             LOGGER.warn("User "+user.getUserId()+" already exists.");
