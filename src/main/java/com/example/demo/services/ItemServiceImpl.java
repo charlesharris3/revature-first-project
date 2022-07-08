@@ -47,17 +47,11 @@ public class ItemServiceImpl implements ItemService{
         return itemRepository.existsById(itemId);
     }
 
-   /* @Override
-    public boolean itemExists(String itemName) {
-        return itemRepository.itemExists(itemName);
-    } */
-
     @Override
     public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
 
-    //////
     public Item getItemQuantity(int itemId){
         Item item = itemRepository.getById(itemId);
         return item;

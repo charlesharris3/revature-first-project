@@ -11,10 +11,6 @@ public interface UserService {
     public User updateUser(User user, int userId);
     public User getUserById(int userId);
     public boolean userExists(int userId);
-
-   /* public List<Item> getUserCart(int userId); */
-
-    /* public boolean userExists(String itemName); */
     public List<User> getAllUsers();
     public User getUserByEmail(String userEmail);
 }

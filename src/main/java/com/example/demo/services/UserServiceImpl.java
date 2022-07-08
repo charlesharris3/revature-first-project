@@ -45,15 +45,6 @@ public class UserServiceImpl implements UserService{
         return userRepository.existsById(userId);
     }
 
-   /* public List<Item> getUserCart(int userId) {
-        return userRepository.getById(userId).getUserCart();
-    }*/
-
-   /* @Override
-    public boolean itemExists(String itemName) {
-        return userRepository.itemExists(itemName);
-    } */
-
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();

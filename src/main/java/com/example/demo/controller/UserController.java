@@ -82,32 +82,6 @@ public class UserController {
         return new ResponseEntity<User>(user, HttpStatus.NOT_FOUND);
     }
 
-    /*
-    @GetMapping("/getUserCart/{userId}") //http://localhost:8084/user/getUserCart
-    public ResponseEntity<List<Item>> getUserCart(@PathVariable("userId")int userId){
-        User user = userService.getUserById(userId);
-        if(userService.userExists(user.getUserId())) {
-            LOGGER.info("Here is the cart for "+userId+": "+ user.getUserCart());
-            return new ResponseEntity<List<Item>>(user.getUserCart(), HttpStatus.OK);
-        }
-        else
-            LOGGER.warn("There is no cart for this user");
-        return new ResponseEntity<List<Item>>(user.getUserCart(), HttpStatus.NOT_FOUND);
-    }
-
-    @GetMapping("/insertItemToCart/{userId}") //http://localhost:8084/user/getUserCart
-    public ResponseEntity<List<Item>> insertItemToCart(@PathVariable("userId")int userId, @PathVariable("itemId")int itemId){
-        User user = userService.getUserById(userId);
-        Item item = new Item();
-        if(userService.userExists(user.getUserId())) {
-            LOGGER.info("Here is the cart for "+userId+": "+ user.setUserCart(item.getItemId();
-            return new ResponseEntity<List<Item>>(user.getUserCart(), HttpStatus.OK);
-        }
-        else
-            LOGGER.warn("There is no cart for this user");
-        return new ResponseEntity<List<Item>>(user.getUserCart(), HttpStatus.NOT_FOUND);
-    }*/
-
     //Update a product using the PUT HTTP method
     @PutMapping("/updateUser/{userId}") //http://localhost:8084/user/updateUser
     public ResponseEntity<User> updateUser(@PathVariable("userId") int userId, @RequestBody User user){

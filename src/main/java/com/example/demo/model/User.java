@@ -5,9 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 import javax.persistence.*;
-import java.util.List;
 
-@Component //used to generate this class as a Bean
+@Component //declares this class as a Bean in Spring, so it can be used with the @Autowired annotation. Very important!
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,5 +18,4 @@ public class User {
     private int userId;
     private String userEmail;
     private String userPassword;
-    /* private List<Item> userCart; */
 }

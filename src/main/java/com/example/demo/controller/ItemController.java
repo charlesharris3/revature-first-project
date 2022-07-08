@@ -125,12 +125,4 @@ public class ItemController {
             return new ResponseEntity<String>("Item "+itemId+" does not exists.",HttpStatus.NOT_FOUND);
     }
 
-    /*  Return an item by its name - using @PathVariable annotation
-    @GetMapping("/getItemByName/{itemName}") //http://localhost:8084/item/getItemByName
-    public Item getItemByName(@PathVariable("itemName")String itemName){
-        System.out.println("Retrieving item: "+ item.getItemName());
-        Item item = new Item(100,1,10,itemName);
-        return item;
-    } */
-
 }
